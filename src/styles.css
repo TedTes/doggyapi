@@ -1,0 +1,21 @@
+body {
+  padding: 1em;
+  margin: 1em;
+}
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  width: 80%;
+  margin: 0 auto;
+  border: solid 1px black;
+}
+
+.image {
+  /* width: 300px; */
+  width: 100%;
+  height: auto;
+  /* width: 80%; */
+  /* column-gap: 20px; */
+  /* border: solid 1px black; */
+}

@@ -1,23 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState,useEffect} from 'react'
+import DogData from "./DogsData.js";
+import Selector from './Selector';
+import axios from 'axios';
+
 
 function App() {
+  const [data,setData]=useState([]);
+
+  const updateBreed=(dat)=>{
+    // console.log(dat);
+setData([dat]);
+  }
+useEffect(()=>{
+axios.get('https://dog.ceo/api/breeds/image/random/50').then(response=>{
+  setData(response.data.message);
+// console.log(response.data.message);
+})
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Selector updateBreed={updateBreed}/>
+     <DogData data={data}/>
     </div>
   );
 }
