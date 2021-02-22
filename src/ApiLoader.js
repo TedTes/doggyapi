@@ -8,9 +8,15 @@ export default function ApiLoader({loadImage}){
  
  
     const handleClick=async()=>{
-       const response=await axios.get('https://dog.ceo/api/breeds/image/random/8')
-       loadImage(response.data.message);
-  
+       const selector= document.getElementById('selector')
+       if(selector.value!=="All breeds"){
+        const response=await axios.get(`https://dog.ceo/api/breed/${selector.value}/images/random/8`)
+        loadImage(response.data.message);
+       }
+     else{
+        const response=await axios.get('https://dog.ceo/api/breeds/image/random/8')
+        loadImage(response.data.message);
+      }  
      }
 return <div>
     <button onClick={handleClick}>load</button>

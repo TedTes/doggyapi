@@ -30,8 +30,7 @@ return (
       <Header />
       </BreedSelectorContext.Provider>
     {data.length!==0?<DogsView loadImage={loadImage} data={data}/>:<div className="loading"></div>} 
- 
-    </div>
+ </div>
   );
 }
 export default App;

@@ -25,7 +25,7 @@ export default function BreedSelector(){
 
 return<div className="breed-selector-container">
    <label>Select by breed</label>
-   <select  onChange={fetchSelectedBreed}>
+   <select  onChange={fetchSelectedBreed} id="selector">
    <option defaultValue="selected">All breeds</option>
    {data.map((dta,index)=><option key={index}>{dta}</option>)}
    </select>
